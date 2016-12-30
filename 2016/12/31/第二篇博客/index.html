@@ -1,0 +1,782 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Angular JS 介绍1.定义：是一款前端的MVC框架
+2.与jQuery的区别：jQuery是一个类库（一系列函数的集合）以DOM为驱动（核心），
+  而Angular是一个框架（一系列的类库的集合），以数据和逻辑为驱动
+
+3.AngularJS核心：模块化、双数据绑定、语义化标签、依赖注入
+
+4.与之相似的还有React、vue等框架
+MVCMVC是一种开发模式（Model、View、Co">
+<meta property="og:type" content="article">
+<meta property="og:title" content="第二篇博客">
+<meta property="og:url" content="http://yoursite.com/2016/12/31/第二篇博客/index.html">
+<meta property="og:site_name" content="Small inn">
+<meta property="og:description" content="Angular JS 介绍1.定义：是一款前端的MVC框架
+2.与jQuery的区别：jQuery是一个类库（一系列函数的集合）以DOM为驱动（核心），
+  而Angular是一个框架（一系列的类库的集合），以数据和逻辑为驱动
+
+3.AngularJS核心：模块化、双数据绑定、语义化标签、依赖注入
+
+4.与之相似的还有React、vue等框架
+MVCMVC是一种开发模式（Model、View、Co">
+<meta property="og:updated_time" content="2016-12-30T17:52:20.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="第二篇博客">
+<meta name="twitter:description" content="Angular JS 介绍1.定义：是一款前端的MVC框架
+2.与jQuery的区别：jQuery是一个类库（一系列函数的集合）以DOM为驱动（核心），
+  而Angular是一个框架（一系列的类库的集合），以数据和逻辑为驱动
+
+3.AngularJS核心：模块化、双数据绑定、语义化标签、依赖注入
+
+4.与之相似的还有React、vue等框架
+MVCMVC是一种开发模式（Model、View、Co">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 第二篇博客 | Small inn </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Small inn</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                第二篇博客
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-12-31T01:51:09+08:00" content="2016-12-31">
+              2016-12-31
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Angular-JS-介绍"><a href="#Angular-JS-介绍" class="headerlink" title="Angular JS 介绍"></a>Angular JS 介绍</h2><pre><code>1.定义：是一款前端的MVC框架
+2.与jQuery的区别：jQuery是一个类库（一系列函数的集合）以DOM为驱动（核心），
+  而Angular是一个框架（一系列的类库的集合），以数据和逻辑为驱动
+
+3.AngularJS核心：模块化、双数据绑定、语义化标签、依赖注入
+
+4.与之相似的还有React、vue等框架
+</code></pre><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><pre><code>MVC是一种开发模式（Model、View、Controller）
+模型：一般用来处理数据（读取/设置）,一般操作数据库
+视图：一般用来展示数据,听过HTML展示
+控制器：一般是用作链接模型和视图的桥梁
+</code></pre><h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><pre><code>AngularJS构建应用时是以模块化的方式组织的，
+将整个应用化成若干模块，各个模块都有自己的各自职责，然后组成一个整体
+
+
+定义应用:ng-app属性，表示此标签所包裹的内容都属于App的一部分
+
+定义模块：AngularJS提供一个全局对象angular，此全局对象存在若干方法， 、
+其中，angular.module()方法定义一个模块（其实App本质是一个模块大的模块）
+
+定义控制器：作为链接模型和视图的桥梁存在，所以当定义好了控制器以后也就定义好了模型和视图
+
+模型数据是要展示导视图上的，所以需要将控制器关联到视图上，
+通过HTML标签加ng-controller属性并且赋值响应的控制器的名称，确定关联关系
+
+具体操作：
+第一步：引入angular包
+第二步：创建模板
+第三步：创建自己的代码
+
+var App = angular.module(&apos;App&apos;,[])
+
+App.controller(&apos;Demo&apos;,[&apos;$scope&apos;,function($scope){
+    //自己的代码
+    $scope.name = &apos;客店小二LX&apos;
+
+}])
+
+body ng-app = &apos;App&apos;
+
+div ng-constroller=&apos;Demo&apos;
+
+h1 {{name}}
+</code></pre><h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><p> 1.ng-app：指定一个应用<br> 可以应用任意标签上，并将此标签区视为一个应用的范围，<br> 一个页面可以有多个但是不能嵌套，一般制定一个</p>
+<p> 2.ng-controller：指定某视图隶属某一个控制器<br> var App = angular.mudule(‘App’,[]);</p>
+<p> App.controller(‘DemoController’,[$scope,function($scope){</p>
+<p> }])</p>
+<p> 3.ng-show:当属性值为true时显示，false时不显示<br> 4.ng-hide:当属性值为true时隐藏，false时显示<br> 5.ng-if:当属性值为true时显示，false时不显示<br> 5.ng-src:增强地址<br> 6.ng-href增强地址<br> 7.ng-class控制类名<br> 8.ng-include引入模板<br> 9.ng-disabled表单禁用<br> 10.ng-readonly表单只读<br> 11.ng-checked单/复选框表单选中<br> 12.ng-selected下拉框表单选中<br> 13.自定义指令<br>    通过angular全局对象下的directive方法实现<br>    //代码：<br>            var App = angular.module(‘Demo’, []);</p>
+<pre><code>// 自定义控制器
+App.controller(&apos;ItcastController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+    $scope.list = [&apos;html&apos;, &apos;css&apos;, &apos;js&apos;];
+
+}]);
+
+// 自定义指令
+// 第一个参数，指令的名称
+// 第二个参数，回调函数
+App.directive(&apos;itcast&apos;, function () {
+    // 此回调函数指定具体指令应该做哪些事情
+    // 通过一个对象来定义
+
+    var obj = {
+        // 自定义指令可以是属性可以是标签
+        // E element
+        // A attribute
+        // C class
+        // M mark
+        restrict: &apos;ECMA&apos;,
+        // 所有内容必须包含在一个根元素下
+        template: &apos;&lt;div&gt;&lt;h1&gt;你好, AngularJS!&lt;/h1&gt;&lt;p&gt;哈哈&lt;/p&gt;&lt;/div&gt;&apos;,
+        // templateUrl: &apos;./header.html&apos;,
+        replace: true,
+        // scope: {},
+        // link: function () {},
+        // compile: function () {}
+    }
+
+    return obj;
+});
+</code></pre><h2 id="数据绑定"><a href="#数据绑定" class="headerlink" title="数据绑定"></a>数据绑定</h2><pre><code>1.单向绑定
+只能模型数据项视图传递
+2.双向绑定
+实现模型数据和视图模板的双向传递
+//代码：
+
+&lt;title&gt;AngularJS 数据绑定&lt;/title&gt;
+&lt;script src=&quot;./libs/angular.min.js&quot;&gt;&lt;/script&gt;
+</code></pre><p></p>
+<p><body ng-app="Demo"><br>    <div class="box" ng-controller="DemoController"><br>        <!-- <h1 ng-cloak><small ng-bind="age"></small></h1> –&gt;<br>        <!-- <h1></h1> –&gt;<br>        <h1 ng-bind-template=""></h1><br>        <ul><br>            <li ng-repeat="course in courses"></li><br>        </ul><br>    </div><br>    <script></p>
+<pre><code>var App = angular.module(&apos;Demo&apos;, []);
+
+App.controller(&apos;DemoController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+    $scope.name = &apos;小明&apos;;
+    $scope.age = &apos;18&apos;;
+    $scope.courses = [&apos;html&apos;, &apos;css&apos;, &apos;js&apos;];
+
+}]);
+</code></pre><h2 id="相关指令"><a href="#相关指令" class="headerlink" title="相关指令"></a>相关指令</h2><pre><code>{{}}与ng-bind指令实现模型数据向视图模板
+其实{{}}是ng-bind的简写形式，绑定数据时会有&apos;闪烁&apos;的现象，添加ng-cloak也可以解决这个现象
+
+通过ng-init初始化模板
+//代码：
+
+    var App = angular.module(&apos;App&apos;, []);
+
+    App.controller(&apos;DemoController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+        $scope.msg = &apos;你好!!!!!&apos;;
+        $scope.testmsg = &apos;&apos;;
+        $scope.show = function () {
+            // 可以输出模型数据
+            alert($scope.msg);
+            // alert($scope.testmsg);
+        }
+    }]);
+
+&lt;/script&gt;
+</code></pre><p></head></p>
+<p><body ng-app="App"><br>    <div ng-controller="DemoController"><br>        <h3></h3><br>        <input type="text" ng-model="testmsg"><br>        <h4></h4><br>        <button ng-click="show()">显示</button><br>    </div></p>
+<pre><code>&lt;title&gt;AngularJS 数据绑定&lt;/title&gt;
+</code></pre><p></head></p>
+<body>
+
+<pre><code>&lt;div ng-controller=&quot;DemoController&quot; ng-init=&quot;name=&apos;小明&apos;; age=18&quot;&gt;
+
+    &lt;h1&gt;{{name}}&lt;/h1&gt;
+    &lt;small&gt;{{age}}&lt;/small&gt;
+
+&lt;/div&gt;
+
+&lt;script src=&quot;./libs/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var App = angular.module(&apos;App&apos;, []);
+
+    App.controller(&apos;DemoController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+        // $scope.name = &quot;小明&quot;;
+
+    }]);
+
+对事件的扩展
+ng-click、ng-dblclick、ng-blur
+//代码：
+
+&lt;div ng-controller=&quot;DemoController&quot;&gt;
+    &lt;ul&gt;
+        &lt;li&gt;{{name}}&lt;/li&gt;
+        &lt;li&gt;&lt;button ng-click=&quot;myclick()&quot;&gt;点击&lt;/button&gt;&lt;/li&gt;
+        &lt;li class=&quot;mouseover&quot; ng-mouseout=&quot;mymouseout()&quot; ng-mouseover=&quot;mymouseover()&quot;&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;input type=&quot;text&quot; ng-keydown=&quot;mykeydown()&quot;&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;./libs/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+    var App = angular.module(&apos;App&apos;, []);
+
+    App.controller(&apos;DemoController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+        $scope.name = &apos;小明&apos;;
+
+        $scope.myclick = function () {
+            alert(&apos;点击了一下?&apos;);
+        }
+
+        $scope.mymouseover = function () {
+            console.log(&apos;鼠标经过过?&apos;);
+        }
+
+        $scope.mymouseout = function () {
+            console.log(&apos;鼠标离开了？&apos;);
+        }
+
+        $scope.mykeydown = function () {
+            console.log(&apos;按键被按下&apos;);
+        }
+
+    }]);
+
+通过ng-repeat将数组或者对象数据迭代到视图模板中，
+ng-switch、on、ng-switch-when可以对数据进行筛选
+//代码
+&lt;div ng-controller=&quot;DemoController&quot;&gt;
+    &lt;ul&gt;
+        &lt;li ng-repeat=&quot;val in obj&quot;&gt;{{val}}&lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;ul&gt;
+        &lt;li ng-repeat=&quot;val in courses&quot; ng-switch on=&quot;val&quot;&gt;
+            &lt;span ng-switch-when=&quot;css&quot;&gt;{{val}}&lt;/span&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;./libs/angular.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+
+    var App = angular.module(&apos;App&apos;, []);
+
+    App.controller(&apos;DemoController&apos;, [&apos;$scope&apos;, function ($scope) {
+
+        $scope.obj = {
+            name: &apos;小明&apos;,
+            age: 18
+        }
+
+        $scope.courses = [&apos;html&apos;, &apos;css&apos;, &apos;js&apos;];
+
+    }]);
+
+
+    var arr = [&apos;html&apos;, &apos;css&apos;, &apos;js&apos;];
+
+    for(var i=0; i&lt;arr.length; i++) {
+
+        if(arr[i] == &apos;css&apos;) {
+            console.log(arr[i])
+        }
+
+    }
+</code></pre>--></div></body></p>
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/30/我的第一篇博客/" rel="next" title="我的第一篇博客">
+                <i class="fa fa-chevron-left"></i> 我的第一篇博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/Small-inn.jpg"
+               alt="Small inn" />
+          <p class="site-author-name" itemprop="name">Small inn</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Angular-JS-介绍"><span class="nav-number">1.</span> <span class="nav-text">Angular JS 介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">2.</span> <span class="nav-text">MVC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块化"><span class="nav-number">3.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指令"><span class="nav-number">4.</span> <span class="nav-text">指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据绑定"><span class="nav-number">5.</span> <span class="nav-text">数据绑定</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Small inn</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
