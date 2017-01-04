@@ -230,6 +230,160 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/04/我的第三篇博客/" itemprop="url">
+                  我的第三篇博客
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-04T20:45:22+08:00" content="2017-01-04">
+              2017-01-04
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前端模块化"><a href="#前端模块化" class="headerlink" title="前端模块化"></a>前端模块化</h2><h3 id="为什么要前端模块化？"><a href="#为什么要前端模块化？" class="headerlink" title="为什么要前端模块化？"></a>为什么要前端模块化？</h3><ul>
+<li>将公共功能进行封装实现复用</li>
+<li>灵活解决依赖</li>
+<li>解决全局变量污染</li>
+</ul>
+<h3 id="如何实现前端模块化？"><a href="#如何实现前端模块化？" class="headerlink" title="如何实现前端模块化？"></a>如何实现前端模块化？</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    </div><div class="line">    <span class="comment">&lt;!-- 通过标签加载js是不能做到模块化的 --&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/jquery.cookie.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./js/a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>Javascript 语言本身是不具备模块化能力的，需要自已进行封装来实现模块的定义以及加载，其实现遵照一定的规范（COMMONJS）</p>
+<p>COMMONJS 是一个定义模块的规范，根据实践分成两种具体实现，一种是Nodejs（CMD），另外一种浏览器端的实现requirejs（AMD）。</p>
+<p>CMD Common Module Define</p>
+<p>AMD Async Module Define</p>
+<h3 id="前端模块化使用requirejs"><a href="#前端模块化使用requirejs" class="headerlink" title="前端模块化使用requirejs"></a>前端模块化使用requirejs</h3><blockquote>
+<p>requirejs 本身是一个js文件，它按照AMD规范实来实现模块的定义和加载规则，应用在浏览器端</p>
+</blockquote>
+<h4 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h4><p>通过define()方法来定义一个模块</p>
+<ul>
+<li>基本定义</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 模块定义</span></div><div class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  alert(<span class="string">'hello'</span>);</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>依赖注入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 定义模块，使用依赖注入解决依赖</span></div><div class="line">define([<span class="string">'./a'</span>, <span class="string">'./b'</span>, <span class="string">'./c'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">a, b, c</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="built_in">console</span>.log(a + <span class="string">'现在是:'</span> + b + <span class="string">'今天的任务是'</span> + c.join(<span class="string">'、'</span>));</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>返回值</li>
+</ul>
+<p>定义模块时，可以有返回值，但并不是必须，返回数据类型没有任何约束，通常返回值是对象更有意义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">define(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="comment">// 处理逻辑</span></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">sayHello</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">    alert(<span class="string">'你好'</span> + name + <span class="string">'你好帅!'</span>);</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> todos = [<span class="string">'起床'</span>, <span class="string">'上课'</span>];</div><div class="line"></div><div class="line">  <span class="keyword">return</span> &#123;</div><div class="line">    <span class="attr">name</span>: <span class="string">'laozhao'</span>,</div><div class="line">    <span class="attr">sayHello</span>: sayHello,</div><div class="line">    <span class="attr">todos</span>: todos</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">// return sayHello;</span></div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h4 id="加载模块"><a href="#加载模块" class="headerlink" title="加载模块"></a>加载模块</h4><p>通过require()方法来加载一个模块</p>
+<ul>
+<li>基本使用</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./libs/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="built_in">require</span>([<span class="string">'./libs/a'</span>]);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>加载有依赖的模块</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./libs/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="built_in">require</span>([<span class="string">'./libs/a'</span>]);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<ul>
+<li>依赖注入</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span><span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./libs/require.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">  <span class="built_in">require</span>([<span class="string">'./libs/main'</span>], <span class="function"><span class="keyword">function</span> (<span class="params">main</span>) </span>&#123;</div><div class="line">    <span class="comment">// console.log(main);</span></div><div class="line">    <span class="built_in">document</span>.querySelector(<span class="string">'h2'</span>).innerHTML = main;</div><div class="line">  &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="入口文件"><a href="#入口文件" class="headerlink" title="入口文件"></a>入口文件</h4><p>通过为引入require的标签加入data-main属性，其属性值为某一个模块的路径，此模块可以自动被加载并执行。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./libs/require.js"</span> <span class="attr">data-main</span>=<span class="string">"./libs/a.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h4 id="加载路径"><a href="#加载路径" class="headerlink" title="加载路径"></a>加载路径</h4><p>requirejs加载模块时，路径是遵照一些规则的，分成以下几种情况</p>
+<ul>
+<li>当没有入口文件时，加载路径以引入requirejs的页面为准</li>
+<li>当存在入口文件时，加载路径以入口文件为准</li>
+<li>通过配置可以自定义路径</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过配置文件可以改变</span></div><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">  <span class="attr">baseUrl</span>: <span class="string">'./src'</span></div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">require</span>([<span class="string">'a'</span>]);</div></pre></td></tr></table></figure>
+<h4 id="配置项"><a href="#配置项" class="headerlink" title="配置项"></a>配置项</h4><ul>
+<li>配置基础路径</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 通过配置文件可以改变</span></div><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">  <span class="attr">baseUrl</span>: <span class="string">'./src'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>配置路径</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">  <span class="attr">baseUrl</span>: <span class="string">'./'</span>,</div><div class="line">  <span class="attr">paths</span>: &#123;</div><div class="line">    <span class="attr">jquery</span>: <span class="string">'assets/jquery/jquery'</span>,</div><div class="line">    <span class="attr">template</span>: <span class="string">'assets/artTemplate/template-native'</span></div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<ul>
+<li>配置不支持模块的插件</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">  <span class="attr">baseUrl</span>: <span class="string">'./'</span>,</div><div class="line">  <span class="attr">paths</span>: &#123;</div><div class="line">    <span class="attr">jquery</span>: <span class="string">'assets/jquery/jquery'</span>,</div><div class="line">    <span class="attr">template</span>: <span class="string">'assets/artTemplate/template-native'</span>,</div><div class="line">    <span class="attr">bootstrap</span>: <span class="string">'assets/bootstrap/js/bootstrap.min'</span></div><div class="line">  &#125;,</div><div class="line">  <span class="attr">shim</span>: &#123;</div><div class="line">    <span class="attr">bootstrap</span>: &#123;</div><div class="line">      <span class="attr">deps</span>: [<span class="string">'jquery'</span>]</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/12/31/第二篇博客/" itemprop="url">
                   第二篇博客
                 </a>
@@ -829,7 +983,7 @@ ng-switch、on、ng-switch-when可以对数据进行筛选
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -869,7 +1023,7 @@ ng-switch、on、ng-switch-when可以对数据进行筛选
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
