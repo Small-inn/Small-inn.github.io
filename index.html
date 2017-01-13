@@ -230,6 +230,144 @@
             
               
                 
+                <a class="post-title-link" href="/2017/01/13/Flex伸缩布局-弹性布局/" itemprop="url">
+                  Flex伸缩布局(弹性布局)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-01-13T18:32:22+08:00" content="2017-01-13">
+              2017-01-13
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"><a href="#Flex是Flexible-Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。" class="headerlink" title="Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。"></a>Flex是Flexible Box的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性。</h2><pre><code>任何一个容器都可以指定为Flex布局。
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</code></pre><p>行内元素也可以使用Flex布局。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  display: inline-flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Webkit内核的浏览器，必须加上-webkit前缀。<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  display: -webkit-flex; /* Safari */</div><div class="line">  display: flex;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意，设为Flex布局以后，子元素的float、clear和vertical-align属性将失效。</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><blockquote>
+<p> 采用Flex布局的元素，称为Flex容器（flex   container），简称”容器”。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称”项目”。</p>
+</blockquote>
+<h2 id="采用Flex布局的元素，称为Flex容器"><a href="#采用Flex布局的元素，称为Flex容器" class="headerlink" title="采用Flex布局的元素，称为Flex容器;"></a>采用Flex布局的元素，称为Flex容器;</h2><pre><code>在容器上的属性：
+
+1.flex-direction:
+定义：决定主轴方向(项目排列的方向)
+属性值：row(主轴为水平方向) | row-reverse | column(主轴为垂直方向) | column-reverse;
+
+2.flex-wrap:
+定义：如果项目在一条轴线上，如何换行
+属性值：nowrap(默认值，不换行) | wrap(换行 第一行在上) | wrap-reverse(换行 第一行在下);
+
+3.flex-flow:
+定义： 该属性是flex-direction与flex-wrap属性的简写形式，默认值为： row nowrap;
+
+4.justify-content: 
+定义：定义了项目在主轴上的对齐方式
+属性值：flex-star(左对齐) | flex-end(右对齐) | center(居中) | spac-between(两端对齐) | space-around(每个项目两侧的间隔相等;
+
+5.align-items:
+定义：定义项目在交叉轴上如何对齐
+属性值：flex-start(交叉轴起点对齐) | flex-end(交叉轴终点对齐) | center(交叉轴中点对齐) | baseline(项目第一行文字基线对齐) | stretch(默认值);
+
+6.algin-content:
+定义: 定义了多根轴线的对齐方式，如果是一根轴线，该方式不起作用
+属性值： flex-start(与交叉轴的起点对齐) | flex-end(与交叉轴的终点对齐) | center(与交叉轴的中点对齐) | spac-between(与交叉轴两端对齐，轴线之间的间隔平均分布) | space-around(每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍) | stretch(默认值，轴线占满整个交叉轴);
+</code></pre><h2 id="项目属性"><a href="#项目属性" class="headerlink" title="项目属性:"></a>项目属性:</h2><pre><code>1.order:定义项目的排列顺序，值越小，排列越靠前，默认为0;
+
+2.flex-grow: 定义项目放大比例，默认为0，如果剩余空间，也不放大;
+
+3.flex-shrink: 定义项目缩小的比例，默认为1，如果空间不足，项目将缩小;
+
+4.flex-basis: 定义分配多余空间之前，项目占据的主轴的空间，浏览器根据这个属性，计算主轴是否有多余空间，默认auto，项目本身的大小;
+
+5.flex:是flex-grow,flex-shrink 和 flex-basis的简写，默认值0 1 auto;
+
+6.align-self: 允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch;
+值:auto | flex-start | flex-end | center | baseline | stretch;
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/01/04/我的第三篇博客/" itemprop="url">
                   我的第三篇博客
                 </a>
@@ -983,7 +1121,7 @@ ng-switch、on、ng-switch-when可以对数据进行筛选
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
